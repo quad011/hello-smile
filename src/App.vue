@@ -61,7 +61,7 @@ const toggleMenu = () => {
     </teleport> -->
   </header>
 
-  <div
+  <!-- <div
     class="fixed right-3 lg:right-5 bottom-16 lg:bottom-5 z-10 bg-white rounded-full transition-opacity duration-500 cursor-pointer mix-blend-difference"
     @click.native="scrollToTop"
     :class="showEl ? 'opacity-100' : 'opacity-0'"
@@ -70,7 +70,7 @@ const toggleMenu = () => {
       v-if="showEl"
       class="w-10 lg:w-14 h-10 lg:h-14 p-3 rotate-180 stroke-black"
     />
-  </div>
+  </div> -->
 
   <RouterView />
 </template>

@@ -17,22 +17,16 @@ const emit = defineEmits(["update:currentIndex"]);
 
 const activeIndex = ref(0);
 const prevIndex = ref(0);
-const nextIndex = ref(0); // temp index for bg overlay
+const nextIndex = ref(0);
 
-const isAnimating = ref(false);
 const swiperRef = ref(null);
 
 const onSlideChange = (swiper) => {
-  if (isAnimating.value) return;
-
   nextIndex.value = swiper.activeIndex; // set this immediately for reveal bg
-
-  isAnimating.value = true;
 
   setTimeout(() => {
     prevIndex.value = swiper.activeIndex;
     activeIndex.value = swiper.activeIndex;
-    isAnimating.value = false;
     emit("update:currentIndex", swiper.activeIndex);
   }, 100); // matches animation duration
 };
@@ -51,14 +45,6 @@ onMounted(() => {
     <div
       class="bg-base absolute inset-0 z-0 transition-colors duration-500"
       :style="{ backgroundColor: items[prevIndex]?.backgroundColor || '#fff' }"
-    />
-
-    <div
-      v-if="isAnimating"
-      class="bg-reveal-overlay absolute inset-0 z-10"
-      :style="{
-        backgroundColor: items[activeIndex]?.backgroundColor || '#fff',
-      }"
     />
     <!-- END :: BG COLOR -->
 
