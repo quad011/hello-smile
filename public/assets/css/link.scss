@@ -1,0 +1,23 @@
+.link {
+	display: inline;
+	transition: all 0.35s linear;
+	background: linear-gradient(to bottom, currentColor 0%, currentColor 98%);
+	background-repeat: no-repeat;
+	background-position: left 100%;
+	&.reversed {
+		background-size: 0px 1px;
+		@screen lg {
+			&:hover {
+				background-size: 100% 1px;
+			}
+		}
+	}
+	&.regular {
+		background-size: 100% 1px;
+		@screen lg {
+			&:hover {
+				background-size: 0% 1px;
+			}
+		}
+	}
+}

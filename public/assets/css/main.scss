@@ -1,0 +1,27 @@
+@import "./tailwind.scss";
+@import "./link.scss";
+
+html,
+body {
+  background-color: #fff;
+  font-family: "RedHatDisplay";
+  font-size: 4.8vw; // 18px
+  @screen sm {
+    font-size: 2.343vw; //18px
+  }
+  @screen lg {
+    font-size: 0.9375vw; // 18px
+  }
+}
+
+:focus {
+  outline: none;
+}
+
+.swiper {
+  perspective: 1000px;
+}
+
+.router-link-exact-active {
+  @apply link regular inline-block;
+}
