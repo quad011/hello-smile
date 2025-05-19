@@ -34,14 +34,14 @@ const props = defineProps({
         <!-- TITLE -->
         <h3
           v-html="title"
-          class="text-40 lg:text-60 pp mb-2 sm:mb-4 lg:mb-5 pt-1 no-wrap"
+          class="text-40 lg:text-60 pp mb-2 sm:mb-4 lg:mb-5 pt-1 no-wrap font-Impact"
         />
         <!-- END :: TITLE -->
 
         <!-- DESCRIPTION -->
         <div
           v-html="description"
-          class="text-14 lg:text-18 mx-auto mb-5 lg:mb-1 lg:mb-5 description px-1 sm:px-0"
+          class="text-14 lg:text-24 mx-auto mb-5 lg:mb-1 lg:mb-5 description px-1 sm:px-0"
         />
         <!-- END ::  DESCRIPTION -->
       </div>

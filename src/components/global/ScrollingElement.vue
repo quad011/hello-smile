@@ -48,6 +48,12 @@ const props = defineProps({
     type: Number,
     default: 0,
   },
+  fromOpacity: {
+    default: 1,
+  },
+  toOpacity: {
+    default: 1,
+  },
 });
 
 gsap.registerPlugin(ScrollTrigger);
@@ -78,11 +84,13 @@ onMounted(async () => {
           y: props.fromY,
           scale: props.fromScale,
           immediateRender: false,
+          opacity: props.fromOpacity,
         },
         {
           x: props.toX,
           y: props.toY,
           ease: "none",
+          opacity: props.toOpacity,
           scale: props.toScale,
           immediateRender: true,
           delay: props.delay,

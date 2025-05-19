@@ -28,7 +28,8 @@ export default {
         purple: "#441752",
       },
       fontFamily: {
-        RedHatDisplay: ["RedHatDisplay"],
+        impact: ["Impact"],
+        helvetica: ["Helvetica"],
       },
 
       fontSize: {

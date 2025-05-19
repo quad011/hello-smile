@@ -8,8 +8,10 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     AnimatedElement: typeof import('./src/components/global/AnimatedElement.vue')['default']
+    ArrowBtn: typeof import('./src/components/global/ArrowBtn.vue')['default']
     ArrowTop: typeof import('./src/components/icons/ArrowTop.vue')['default']
     BigText: typeof import('./src/components/BigText/index.vue')['default']
+    copy: typeof import('./src/components/global/TextBox copy.vue')['default']
     CTF_SliderComponent: typeof import('./src/components/sliderComponent/CTF_SliderComponent.vue')['default']
     FullscreenMenu: typeof import('./src/components/global/FullscreenMenu.vue')['default']
     Hamburger: typeof import('./src/components/global/Hamburger.vue')['default']
@@ -33,6 +35,7 @@ declare module 'vue' {
     SliderTop: typeof import('./src/components/sliderComponent/SliderTop.vue')['default']
     SmoothScroll: typeof import('./src/components/global/SmoothScroll.vue')['default']
     Spinner: typeof import('./src/components/cvele-components/Spinner.vue')['default']
+    TextAndTwoImages: typeof import('./src/components/TextAndTwoImages/TextAndTwoImages.vue')['default']
     TextBox: typeof import('./src/components/global/TextBox.vue')['default']
     TransitionGsap: typeof import('./src/components/cvele-components/TransitionGsap.vue')['default']
     WorkBox: typeof import('./src/components/global/WorkBox.vue')['default']
