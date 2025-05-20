@@ -163,7 +163,7 @@ onMounted(() => {
 
   @keyframes riseUp {
     0% {
-      transform: translateY(100%);
+      transform: translateY(120%);
     }
     100% {
       transform: translateY(0%);

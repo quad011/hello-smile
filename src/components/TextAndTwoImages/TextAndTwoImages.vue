@@ -48,7 +48,7 @@ const props = defineProps({
           :class="`image image--${index}`"
         >
           <scrolling-element
-            :fromX="index % 2 ? '20vw' : '-20vw'"
+            :fromX="index % 2 ? '30vw' : '-30vw'"
             :toX="0"
             startPosition="0"
             endPosition="center center"
