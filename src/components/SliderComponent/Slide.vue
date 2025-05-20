@@ -19,14 +19,16 @@ const props = defineProps({
     :class="[
       `slide--${isActive ? 'active' : isNext ? 'next' : 'prev'}`,
       {
-        // 'z-4': isPrev // Uncomment if needed
+        // 'z-10 relative': isPrev, // Uncomment if needed
       },
       'flex flex-col justify-center',
     ]"
     class="slide text-center mx-auto"
   >
     <div class="relative z-10">
-      <div class="content-wrapper flex flex-col items-center">
+      <div
+        class="content-wrapper flex flex-col items-center justify-center mx-auto"
+      >
         <!-- CAPTION -->
         <div v-html="caption" class="text-14 lg:text-18 mb-0.5" />
         <!-- END :: CAPTION -->
@@ -41,29 +43,39 @@ const props = defineProps({
         <!-- DESCRIPTION -->
         <div
           v-html="description"
-          class="text-14 lg:text-24 mx-auto mb-5 lg:mb-1 lg:mb-5 description px-1 sm:px-0"
+          class="text-12 lg:text-24 mx-auto mb-5 lg:mb-1 lg:mb-5 description px-1 sm:px-0"
         />
         <!-- END ::  DESCRIPTION -->
       </div>
     </div>
 
-    <!-- BG IMAGE -->
-    <div class="xl:px-12 bg-image">
-      <img
-        class="bg w-full h-full object-cover flex aspect-[2]"
-        :src="backgroundImage"
-        :alt="'hello smile'"
-      />
-    </div>
-    <!-- END :: BG IMAGE -->
-
-    <!-- IMAGE -->
-    <div class="image absolute">
-      <div class="w-100 h-100">
-        <img :src="image" :alt="'hello smile'" class="w-100 h-100" />
+    <div class="relative">
+      <!-- BG IMAGE -->
+      <div class="2xl:px-12 bg-image">
+        <img
+          class="bg w-full h-full object-cover flex aspect-[2]"
+          :src="backgroundImage"
+          :alt="'hello smile'"
+        />
       </div>
+      <!-- END :: BG IMAGE -->
+
+      <!-- IMAGE -->
+      <div class="image absolute">
+        <div class="w-100 h-100">
+          <img :src="image" :alt="'hello smile'" class="w-100 h-100" />
+        </div>
+      </div>
+      <!-- END :: IMAGE -->
     </div>
-    <!-- END :: IMAGE -->
+
+    <!-- BTN -->
+    <div class="flex justify-center mt-12 lg:mt-32">
+      <RouterLink to="/">
+        <btnComponent theme="white" textBtn="Dodaj u Korpu" class="btn" />
+      </RouterLink>
+    </div>
+    <!-- END :: BTN -->
   </div>
 </template>
 
@@ -72,12 +84,13 @@ const props = defineProps({
   .bg-image {
     // margin-top: -6vw;
     position: relative;
-    // transform: translateX(-22.5vw);
+    transform: translateX(-22.5vw);
     width: 100vw;
+    z-index: 2;
 
     @media (min-width: 600px) {
-      left: -6%;
-      width: 111.5%;
+      left: 0;
+      width: 100%;
       transform: translateX(0);
       //   margin-top: -4.5vw;
     }
@@ -93,22 +106,34 @@ const props = defineProps({
     top: 50%;
     z-index: 3;
     height: auto;
-    width: 7.25rem;
+    width: 5.25rem;
     transition: 1s transform ease-out;
 
-    @media (min-width: 922px) {
-      transform: translate(-50%, 34%);
-      //   width: 8.25rem;
-      width: 13.13rem;
+    @media (min-width: 600px) {
+      transform: translate(-50%, -15%);
+      width: 6.25rem;
     }
 
     @media (min-width: 1024px) {
-      transform: translate(-50%, 10%);
+      transform: translate(-50%, 0);
+      width: 12.25rem;
+    }
+  }
+
+  .content-wrapper {
+    @media (max-width: 600px) {
+      width: 100vw;
+      transform: translateX(-22.5vw);
     }
   }
 
   .content-wrapper {
     transition: 0.4s opacity, 1s transform ease-out;
+  }
+
+  .btn {
+    transition: 0.4s opacity, 1s transform ease-out, background-color 0.4s ease,
+      color 0.4s ease;
   }
 
   .bg {
@@ -117,8 +142,10 @@ const props = defineProps({
   }
 
   &--active {
-    .image {
-      transform: translate(-50%, 0%) scale(1);
+    @media (max-width: 600px) {
+      .image {
+        transform: translate(-50%, 0) scale(1);
+      }
     }
 
     .bg,
@@ -128,13 +155,16 @@ const props = defineProps({
   }
 
   &--prev {
-    @media (max-width: 375px) {
+    position: relative;
+    z-index: 1;
+    @media (max-width: 600px) {
       .image {
-        transform: translate(-55%, 10%) scale(0.5);
+        transform: translate(-25%, 14%) scale(0.5);
       }
     }
 
-    .bg {
+    .bg,
+    .btn {
       transform: translateX(-25vw);
       opacity: 0;
     }
@@ -145,13 +175,14 @@ const props = defineProps({
   }
 
   &--next {
-    @media (max-width: 375px) {
+    @media (max-width: 600px) {
       .image {
-        transform: translate(-45%, 14%) scale(0.5);
+        transform: translate(-78%, 14%) scale(0.5);
       }
     }
 
-    .bg {
+    .bg,
+    .btn {
       transform: translateX(25vw);
       opacity: 0;
     }

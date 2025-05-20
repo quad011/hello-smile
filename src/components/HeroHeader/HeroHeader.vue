@@ -26,7 +26,7 @@ const props = defineProps({
 
 <template>
   <div
-    class="hero-header h-[80vh] md:h-[120vh] lg:h-[150vh] flex flex-col relative overflow-hidden bg-[#c4eafe] px-5 sm:px-20 xl:px-60 pt-20 lg:pt-32"
+    class="hero-header h-[70vh] sm:h-[100vw] md:h-[120vh] lg:h-[150vh] flex flex-col relative overflow-hidden bg-[#c4eafe] px-5 sm:px-20 xl:px-60 pt-20 lg:pt-32 lg:pb-92"
   >
     <div class="relative z-10">
       <!-- CAPTION -->
@@ -40,7 +40,7 @@ const props = defineProps({
         <animated-element :fromX="-50" :toX="0" :delay="0.1">
           <span
             v-html="title1"
-            class="text-[30.16vw] md:text-[26.16vw] lg:text-[26.16rem] text-[#7FA2EA] tracking-[-.03em]"
+            class="text-[30.16vw] sm:text-[26.16vw] lg:text-[26.16rem] text-[#7FA2EA] tracking-[-.03em]"
           />
         </animated-element>
         <animated-element
@@ -58,7 +58,9 @@ const props = defineProps({
       <!-- END ::  TITLE -->
 
       <!-- SCORE -->
-      <div class="text-center mt-10 md:mt-20 flex items-center justify-center">
+      <div
+        class="text-center mt-10 md:mt-20 flex items-center justify-center ml-10 sm:ml-0"
+      >
         <span
           v-html="'4.9 / 5'"
           class="font-impact lg:text-54 tracking-[-.05em] mr-3"
@@ -109,13 +111,19 @@ const props = defineProps({
     position: absolute;
     &--0 {
       left: 0;
-      top: 24vw;
+      top: 32vw;
       width: 29vw;
+      @media (min-width: 600px) {
+        top: 24vw;
+      }
     }
     &--1 {
       left: 36%;
-      top: 20vw;
+      top: 24vw;
       width: 19.16vw;
+      @media (min-width: 600px) {
+        top: 20vw;
+      }
     }
     &--2 {
       right: 0%;

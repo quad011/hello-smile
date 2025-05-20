@@ -20,13 +20,13 @@ const props = defineProps({
 
 <template>
   <div
-    class="text-and-two-images flex flex-col relative overflow-hidden px-5 sm:px-20 xl:px-60 pt-20 md:pt-32 lg:pt-60 pb-10 md:pb-20 lg:pb-40"
+    class="text-and-two-images flex flex-col relative overflow-hidden px-5 sm:px-20 xl:px-60 pt-20 sm:pt-32 lg:pt-60 pb-10 md:pb-20 lg:pb-40"
   >
     <div class="relative">
       <div>
         <!-- TITLE -->
         <h1
-          class="title uppercase flex items-center whitespace-nowrap font-impact text-[22.44vw] lg:text-[21.7rem] tracking-[-.04em] leading-none text-[#282930]"
+          class="title uppercase flex items-center whitespace-nowrap font-impact text-[23vw] sm:text-[20vw] lg:text-[21.7rem] tracking-[-.04em] leading-none text-[#282930]"
         >
           <!-- <animated-element :fromY="50" :toY="0"> -->
           <span
@@ -51,7 +51,7 @@ const props = defineProps({
             :fromX="index % 2 ? '20vw' : '-20vw'"
             :toX="0"
             startPosition="0"
-            endPosition="bottom"
+            endPosition="center center"
           >
             <img class="w-full h-full" :src="item.image" :alt="'hello smile'" />
           </scrolling-element>
@@ -62,7 +62,7 @@ const props = defineProps({
       <!-- TEXT -->
       <animated-element :fromY="50" :toY="0" :delay="0.1">
         <p
-          class="text-14 lg:text-20 leading-normal text-[#7E8492] mt-10 md:w-4/5 lg:w-1/2 md:pr-10"
+          class="text-14 lg:text-20 leading-normal text-[#7E8492] mt-10 sm:w-4/5 lg:w-1/2 sm:pr-10"
           v-html="text"
         />
       </animated-element>

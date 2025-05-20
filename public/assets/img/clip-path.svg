@@ -1,0 +1,31 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 100 100"
+  preserveAspectRatio="none"
+>
+  <defs>
+    <linearGradient id="redGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff5e5e" />
+      <stop offset="100%" stop-color="#ff0000" />
+    </linearGradient>
+
+    <filter id="blur">
+      <feGaussianBlur stdDeviation="2" />
+    </filter>
+  </defs>
+
+  <path
+    d="
+      M 0 0
+      V 80
+      C 10 75, 20 85, 30 80
+      C 40 75, 50 85, 60 80
+      C 70 75, 80 85, 90 80
+      C 95 78, 98 75, 100 78
+      V 0
+      Z
+    "
+    fill="url(#redGradient)"
+    filter="url(#blur)"
+  />
+</svg>
