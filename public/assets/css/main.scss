@@ -21,3 +21,8 @@ body {
 .swiper {
   perspective: 1000px;
 }
+
+@font-face {
+  font-family: "Impact";
+  src: url("./assets/fonts/Impact.woff2") format("woff2");
+}
