@@ -110,11 +110,13 @@ const props = defineProps({
       left: 0;
       top: -12vw;
       width: 30vw;
+      height: 21vw;
     }
     &--1 {
       right: 6%;
       top: 16vw;
       width: 14vw;
+      height: 13.7vw;
       z-index: 5;
     }
   }

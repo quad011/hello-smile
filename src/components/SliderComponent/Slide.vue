@@ -36,7 +36,7 @@ const props = defineProps({
         <!-- TITLE -->
         <h2
           v-html="title"
-          class="text-40 lg:text-60 pp mb-2 sm:mb-4 lg:mb-5 pt-1 no-wrap font-Impact"
+          class="text-36 md:text-40 lg:text-60 pp mb-2 sm:mb-4 lg:mb-5 pt-1 no-wrap font-Impact whitespace-nowrap"
         />
         <!-- END :: TITLE -->
 
@@ -86,11 +86,13 @@ const props = defineProps({
     position: relative;
     transform: translateX(-22.5vw);
     width: 100vw;
+    height: 55vw;
     z-index: 2;
 
     @media (min-width: 600px) {
       left: 0;
       width: 100%;
+      height: 28vw;
       transform: translateX(0);
       //   margin-top: -4.5vw;
     }

@@ -115,6 +115,7 @@ const props = defineProps({
       left: 0;
       top: 32vw;
       width: 29vw;
+      height: 26vw;
       @media (min-width: 600px) {
         top: 24vw;
       }
@@ -123,6 +124,7 @@ const props = defineProps({
       left: 36%;
       top: 24vw;
       width: 19.16vw;
+      height: 19vw;
       @media (min-width: 600px) {
         top: 20vw;
       }
@@ -131,6 +133,7 @@ const props = defineProps({
       right: 0%;
       top: 18vw;
       width: 17.7vw;
+      height: 28vw;
       @media (min-width: 600px) {
         right: -15%;
       }
