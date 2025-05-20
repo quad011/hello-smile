@@ -72,7 +72,7 @@ const props = defineProps({
     <!-- BTN -->
     <div class="flex justify-center mt-12 lg:mt-32">
       <RouterLink to="/">
-        <btnComponent theme="white" textBtn="Dodaj u Korpu" class="btn" />
+        <btnComponent theme="black" textBtn="Dodaj u Korpu" class="btn" />
       </RouterLink>
     </div>
     <!-- END :: BTN -->
@@ -132,8 +132,8 @@ const props = defineProps({
   }
 
   .btn {
-    transition: 0.4s opacity, 1s transform ease-out, background-color 0.4s ease,
-      color 0.4s ease;
+    transition: opacity 0.4s, transform 1s ease-out, background-color 0.4s ease,
+      color 0.4s ease, stroke 1s ease;
   }
 
   .bg {

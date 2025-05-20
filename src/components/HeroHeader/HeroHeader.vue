@@ -61,11 +61,13 @@ const props = defineProps({
       <div
         class="text-center mt-10 md:mt-20 flex items-center justify-center ml-10 sm:ml-0"
       >
-        <span
-          v-html="'4.9 / 5'"
-          class="font-impact lg:text-54 tracking-[-.05em] mr-3"
-        />
-        * <span v-html="'18,921'" class="lg:text-24 ml-3" />
+        <animated-element :fromY="50" :toY="0" :delay="0.2">
+          <span
+            v-html="'4.9 / 5'"
+            class="font-impact lg:text-54 tracking-[-.05em] mr-3"
+          />
+          * <span v-html="'18,921'" class="lg:text-24 ml-3" />
+        </animated-element>
       </div>
       <!-- END :: SCORE -->
 

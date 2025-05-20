@@ -40,4 +40,14 @@ export default {
     ).href,
     backgroundColor: "#F3BA84",
   },
+  3: {
+    title: "Voyage Grape Bubblegum",
+    caption: "Pasta za zube",
+    description:
+      "Spoj slatkog, voćnog ukusa i osvežavajuće teksture čini ovu pastu za zube neodoljivom za tvoja čula. Pripremi se za jedinstveno iskustvo koje donosi dugotrajnu svežinu i blistav osmeh!",
+    backgroundImage: new URL("/assets/img/voyage-img-5.webp", import.meta.url)
+      .href,
+    image: new URL("/assets/img/voyage-img-4.webp", import.meta.url).href,
+    backgroundColor: "#A48AD8",
+  },
 };
