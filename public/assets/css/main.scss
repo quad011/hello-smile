@@ -24,5 +24,6 @@ body {
 
 @font-face {
   font-family: "Impact";
-  src: url("./fonts/Impact.woff2") format("woff2");
+  src: url("/fonts/impact.woff2") format("woff2"),
+    url("/fonts/impact.woff") format("woff");
 }
