@@ -34,7 +34,7 @@ const props = defineProps({
         <!-- END :: CAPTION -->
 
         <!-- TITLE -->
-        <h3
+        <h2
           v-html="title"
           class="text-40 lg:text-60 pp mb-2 sm:mb-4 lg:mb-5 pt-1 no-wrap font-Impact"
         />
