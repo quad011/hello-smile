@@ -18,12 +18,12 @@ const emit = defineEmits(["update:currentIndex"]);
 const activeIndex = ref(0);
 const prevIndex = ref(0);
 const nextIndex = ref(0);
+const swiperRef = ref(null);
+const isFirstLoad = ref(true);
 
 const colorStack = ref([
   { color: props.items[0]?.backgroundColor || "#fff", key: 0 },
 ]);
-
-const swiperRef = ref(null);
 
 const onSlideChange = (swiper) => {
   nextIndex.value = swiper.activeIndex;
@@ -41,6 +41,10 @@ const onSlideChange = (swiper) => {
   prevIndex.value = swiper.activeIndex;
   activeIndex.value = swiper.activeIndex;
   emit("update:currentIndex", swiper.activeIndex);
+
+  if (isFirstLoad.value) {
+    isFirstLoad.value = false;
+  }
 };
 
 onMounted(() => {
@@ -60,7 +64,9 @@ onMounted(() => {
           v-for="(layer, i) in colorStack"
           :key="layer.key"
           class="liquid-bg absolute inset-0"
-          :class="{ 'animate-liquid': i === colorStack.length - 1 }"
+          :class="{
+            'animate-liquid': i === colorStack.length - 1 && !isFirstLoad,
+          }"
         >
           <svg
             class="wave-mask absolute bottom-0 left-0 w-screen h-full"
