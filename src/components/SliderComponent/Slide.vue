@@ -1,9 +1,9 @@
 <script setup>
 const props = defineProps({
-  title: { type: String },
+  titleTop: { type: String },
+  titleBottom: { type: String },
   caption: { type: String },
   description: { type: String },
-  headline: { type: String },
   backgroundImage: { type: String },
   image: { type: String },
   text: { type: String },
@@ -25,35 +25,31 @@ const props = defineProps({
       'flex flex-col justify-center',
     ]"
     class="slide text-center mx-auto"
+    :style="{ '--text-color': props.textColor }"
   >
     <div class="relative z-10">
       <div
-        :style="{ '--text-color': props.textColor }"
         class="content-wrapper flex flex-col items-center justify-center mx-auto"
       >
         <!-- CAPTION -->
-        <div v-html="caption" class="text-14 lg:text-18 mb-0.5" />
+        <div
+          v-html="caption"
+          class="text-14 lg:text-36 mb-0.5 font-helveticaMedium"
+        />
         <!-- END :: CAPTION -->
 
-        <!-- TITLE -->
+        <!-- TITLE TOP -->
         <h2
-          v-html="title"
-          class="text-36 md:text-40 lg:text-60 pp mb-2 sm:mb-4 lg:mb-5 pt-1 no-wrap font-Impact whitespace-nowrap"
+          v-html="titleTop"
+          class="text-[15.28vw] sm:text-[13.28vw] leading-[.9] pp mb-2 sm:mb-4 lg:mb-5 pt-1 no-wrap tracking-[-.03em] whitespace-nowrap font-helveticaBlack"
         />
-        <!-- END :: TITLE -->
-
-        <!-- DESCRIPTION -->
-        <div
-          v-html="description"
-          class="text-12 lg:text-24 mx-auto mb-5 lg:mb-1 lg:mb-5 description px-1 sm:px-0"
-        />
-        <!-- END ::  DESCRIPTION -->
+        <!-- END :: TITLE TOP -->
       </div>
     </div>
 
     <div class="relative">
       <!-- BG IMAGE -->
-      <div class="2xl:px-12 bg-image">
+      <div class="bg-image">
         <img
           class="bg w-full h-full object-cover flex aspect-[2]"
           :src="backgroundImage"
@@ -63,72 +59,103 @@ const props = defineProps({
       <!-- END :: BG IMAGE -->
 
       <!-- IMAGE -->
-      <div class="image absolute">
+      <div class="image absolute z-[11]">
         <div class="w-100 h-100">
           <img :src="image" :alt="'hello smile'" class="w-100 h-100" />
         </div>
       </div>
       <!-- END :: IMAGE -->
+
+      <div
+        class="-mt-[5vw] sm:-mt-[2.8vw] content-wrapper flex flex-col justify-center items-center"
+      >
+        <!-- TITLE BOTTOM -->
+        <h2
+          v-html="titleBottom"
+          class="text-[15.28vw] sm:text-[13.28vw] leading-[.9] pp mb-2 sm:mb-4 lg:mb-5 pt-1 no-wrap tracking-[-.03em] whitespace-nowrap font-helveticaBlack"
+        />
+        <!-- END :: TITLE BOTTOM -->
+
+        <!-- DESCRIPTION -->
+        <div
+          v-html="description"
+          class="text-12 lg:text-18 mx-auto mb-5 lg:mb-1 font-medium description px-1 sm:px-0"
+        />
+        <!-- END ::  DESCRIPTION -->
+      </div>
     </div>
 
     <!-- BTN -->
-    <div class="flex justify-center mt-12 lg:mt-32">
+    <!-- <div class="flex justify-center mt-12 lg:mt-32">
       <RouterLink to="/">
         <btnComponent theme="white" textBtn="Dodaj u Korpu" class="btn" />
       </RouterLink>
-    </div>
+    </div> -->
     <!-- END :: BTN -->
   </div>
 </template>
 
 <style lang="scss" scoped>
 .slide {
+  color: var(--text-color);
   .bg-image {
-    // margin-top: -6vw;
+    margin-top: -7vw;
     position: relative;
     transform: translateX(-22.5vw);
     width: 100vw;
     height: 55vw;
-    z-index: 2;
+    z-index: 10;
 
     @media (min-width: 600px) {
+      transform: translateX(0);
       left: 0;
       width: 100%;
-      height: 28vw;
-      transform: translateX(0);
-      //   margin-top: -4.5vw;
+      height: 22.7vw;
+      margin-top: -4vw;
     }
 
-    @media (min-width: 992px) {
+    @media (min-width: 768px) {
+      transform: translateX(-4vw);
       left: 0;
-      width: 100%;
+      width: 116.8%;
+    }
+
+    @media (min-width: 1500px) {
+      height: 26.7vw;
     }
   }
 
   .image {
     left: 50%;
     top: 50%;
-    z-index: 3;
-    height: 17vw;
-    width: 7.5vw;
+    z-index: 11;
+    height: 51vw;
+    width: 10.5vw;
     transition: 1s transform ease-out;
 
     @media (min-width: 600px) {
-      transform: translate(-50%, -15%);
-      height: 17vw;
-      width: 3.5vw;
+      transform: translate(-50%, -70%);
+      height: 33vw;
+      width: 6.5vw;
     }
 
     @media (min-width: 1024px) {
-      transform: translate(-50%, 10%);
+      transform: translate(-50%, -60%);
+    }
+    @media (min-width: 1500px) {
+      width: 7vw;
     }
   }
 
-  .content-wrapper {
-    color: var(--text-color);
-    @media (max-width: 600px) {
-      width: 100vw;
-      transform: translateX(-22.5vw);
+  .description {
+    width: 100vw;
+    transform: translateX(-22.5vw);
+    @media (min-width: 600px) {
+      transform: translateX(0);
+      width: 50vw;
+    }
+    @media (min-width: 1440px) {
+      width: 35vw;
     }
   }
 
@@ -144,7 +171,7 @@ const props = defineProps({
   &--active {
     @media (max-width: 600px) {
       .image {
-        transform: translate(-50%, 0) scale(1);
+        transform: translate(-50%, -60%) scale(1);
       }
     }
 
@@ -159,7 +186,7 @@ const props = defineProps({
     z-index: 1;
     @media (max-width: 600px) {
       .image {
-        transform: translate(25%, 15%) scale(0.7);
+        transform: translate(0, -46%) scale(0.7);
       }
     }
 
@@ -177,7 +204,7 @@ const props = defineProps({
   &--next {
     @media (max-width: 600px) {
       .image {
-        transform: translate(-125%, 15%) scale(0.7);
+        transform: translate(-100%, -46%) scale(0.7);
       }
     }
 

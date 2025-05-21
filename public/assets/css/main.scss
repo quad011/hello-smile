@@ -39,3 +39,15 @@ img {
   src: url("/fonts/impact.woff2") format("woff2"),
     url("/fonts/impact.woff") format("woff");
 }
+
+@font-face {
+  font-family: "HelveticaNeue-Heavy";
+  src: url("/fonts/HelveticaNeue-Heavy.woff2") format("woff2"),
+    url("/fonts/HelveticaNeue-Heavy.woff") format("woff");
+}
+
+@font-face {
+  font-family: "HelveticaNeue-Extended";
+  src: url("/fonts/HelveticaNeue-Extended.woff2") format("woff2"),
+    url("/fonts/HelveticaNeue-Extended.woff") format("woff");
+}

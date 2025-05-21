@@ -13,13 +13,17 @@
       bottomGradient="./assets/img/background-gradient.png"
     />
 
-    <SliderComponent />
+    <div class="h-[52vw]"></div>
 
     <ImageTextAndCta
       :bgImage="'./assets/img/8.jpg'"
       :title="'BUNDLE BUILDER'"
       :text="'At Spektre we believe in combining style, functionality, and quality to create sunglasses that not only protect your eyes but also elevate your look. With a passion for timeless designs and innovative craftsmanship, our collection caters to individuals who value comfort, durability, and elegance.'"
     />
+
+    <div class="py-20 lg:py-24 bg-black"></div>
+
+    <SliderComponent />
 
     <TextAndTwoImages
       title="About us"

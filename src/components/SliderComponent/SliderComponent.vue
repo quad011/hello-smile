@@ -130,7 +130,7 @@ onMounted(() => {
             // 'z-10': activeIndex !== index,
           },
         ]"
-        class="swiper-slide py-10 lg:pb-20 lg:pt-16"
+        class="swiper-slide py-10 lg:pb-[7.8vw] lg:pt-[10vw]"
       >
         <Slide
           :theme="item.backgroundColor"
@@ -138,7 +138,8 @@ onMounted(() => {
           :isActive="activeIndex === Number(index)"
           :isPrev="activeIndex > Number(index)"
           :isNext="activeIndex < Number(index)"
-          :title="item.title"
+          :titleTop="item.titleTop"
+          :titleBottom="item.titleBottom"
           :caption="item.caption"
           :description="item.description"
           :headline="item.headlineTags"
@@ -160,12 +161,12 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .slider-component {
-  .clip-wrapper {
-    clip-path: ellipse(150% 100% at 50% 100%);
-    @media (min-width: 600px) {
-      clip-path: ellipse(111% 100% at 50% 100%);
-    }
-  }
+  // .clip-wrapper {
+  //   clip-path: ellipse(150% 100% at 50% 100%);
+  //   @media (min-width: 600px) {
+  //     clip-path: ellipse(111% 100% at 50% 100%);
+  //   }
+  // }
   .bg-color-wrapper {
     .wave-mask {
       z-index: 2;

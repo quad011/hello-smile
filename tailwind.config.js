@@ -33,6 +33,8 @@ export default {
       fontFamily: {
         impact: ["Impact"],
         helvetica: ["Helvetica"],
+        helveticaBlack: ["HelveticaNeue-Heavy"],
+        helveticaMedium: ["HelveticaNeue-Extended"],
       },
 
       fontSize: {
