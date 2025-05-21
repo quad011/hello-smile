@@ -136,11 +136,6 @@ const props = defineProps({
     transition: 0.4s opacity, 1s transform ease-out;
   }
 
-  .btn {
-    transition: opacity 0.4s, transform 1s ease-out, background-color 0.4s ease,
-      color 0.4s ease, stroke 1s ease;
-  }
-
   .bg {
     transition: 0.4s opacity, 1s transform ease-out;
     z-index: 2;
