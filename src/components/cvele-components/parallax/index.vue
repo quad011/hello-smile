@@ -2,39 +2,48 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const props = defineProps({});
-
 gsap.registerPlugin(ScrollTrigger);
 
+const props = defineProps({
+  factor: {
+    type: Number,
+    default: 0.3, // default parallax strength
+  },
+});
+
+const containerRef = ref(null);
+const innerRef = ref(null);
+
 onMounted(() => {
-  gsap.utils.toArray(".image-container").forEach((container) => {
-    const image = container.querySelector(".parallax-inner");
+  if (!innerRef.value || !containerRef.value) return;
 
-    if (!image) {
-      console.error("Image element not found in container");
-      return;
-    }
-
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: container,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: true,
-        },
-      })
-      .fromTo(image, { yPercent: -20 }, { yPercent: 20, ease: "none" });
-  });
+  gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: containerRef.value,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
+      },
+    })
+    .fromTo(
+      innerRef.value,
+      { yPercent: -100 * props.factor },
+      { yPercent: 100 * props.factor, ease: "none" }
+    );
 });
 </script>
 
 <template>
-  <div class="parallax image-container relative w-full h-full">
-    <div class="img w-full h-full overflow-hidden">
-      <div class="parallax-inner">
-        <slot />
-      </div>
+  <div
+    ref="containerRef"
+    class="parallax image-container relative w-full h-full overflow-hidden"
+  >
+    <div
+      ref="innerRef"
+      class="parallax-inner w-full h-full will-change-transform"
+    >
+      <slot />
     </div>
   </div>
 </template>
