@@ -27,3 +27,9 @@ npm run dev
 ```sh
 npm run build
 ```
+
+### Test Staging
+
+```sh
+https://hello-smile.netlify.app/
+```
