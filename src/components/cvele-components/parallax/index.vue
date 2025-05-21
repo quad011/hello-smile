@@ -5,9 +5,17 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const props = defineProps({
+  wrapped: {
+    type: Boolean,
+    default: false,
+  },
   factor: {
     type: Number,
-    default: 0.3, // default parallax strength
+    default: 0.3,
+  },
+  innerClass: {
+    type: String,
+    default: "w-full h-full",
   },
 });
 
@@ -58,7 +66,7 @@ onMounted(() => {
     position: relative;
     height: 120%;
     width: 100%;
-    @media (max-width: 600px) {
+    @media (max-width: 1200px) {
       top: -20%;
     }
   }
