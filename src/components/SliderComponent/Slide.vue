@@ -79,7 +79,7 @@ const props = defineProps({
         <!-- DESCRIPTION -->
         <div
           v-html="description"
-          class="text-12 lg:text-18 mx-auto font-medium description px-1 sm:px-0 mt-5"
+          class="text-14 lg:text-18 mx-auto description px-1 sm:px-0 mt-5"
         />
         <!-- END ::  DESCRIPTION -->
       </div>

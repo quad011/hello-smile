@@ -13,12 +13,12 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="image-text-and-cta relative pt-5 md:pt-16 lg:pt-28">
+  <div class="image-text-and-cta relative pt-10 md:pt-16 lg:pt-28">
     <!-- CONTENT -->
     <div class="content-wrapper relative z-10">
       <h2 v-html="title" class="title" />
 
-      <p v-html="text" class="mt-5 lg:mt-7" />
+      <p v-html="text" class="text-14 lg:text-20 mt-5 lg:mt-7 px-2 md:px-0" />
 
       <!-- BTN -->
       <div class="flex justify-center mt-5 md:mt-10 lg:mt-12">
@@ -67,14 +67,9 @@ const props = defineProps({
       line-height: 0.9;
     }
     p {
-      font-size: 0.6rem;
       padding: 0 1rem;
       @media (min-width: 600px) {
-        font-size: 0.8rem;
         padding: 0 6rem;
-      }
-      @media (min-width: 992px) {
-        font-size: 1.16rem;
       }
     }
   }
