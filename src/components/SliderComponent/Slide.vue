@@ -67,7 +67,7 @@ const props = defineProps({
       <!-- END :: IMAGE -->
 
       <div
-        class="-mt-[5vw] sm:-mt-[2.8vw] content-wrapper flex flex-col justify-center items-center"
+        class="-mt-[3vw] sm:-mt-[2.8vw] content-wrapper flex flex-col justify-center items-center"
       >
         <!-- TITLE BOTTOM -->
         <h2
@@ -99,7 +99,7 @@ const props = defineProps({
 .slide {
   color: var(--text-color);
   .bg-image {
-    margin-top: -7vw;
+    margin-top: -6vw;
     position: relative;
     transform: translateX(-22.5vw);
     width: 100vw;
