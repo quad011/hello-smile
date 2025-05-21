@@ -5,7 +5,10 @@ export default {
   plugins: [
     plugin(function ({ addBase }) {
       addBase({
-        html: { fontSize: ".9375vw", fontFamily: "Impact, Helvetica" },
+        html: {
+          fontSize: ".9375vw",
+          fontFamily: "Impact, Helvetica",
+        },
       });
     }),
     typography,
