@@ -72,14 +72,14 @@ const props = defineProps({
         <!-- TITLE BOTTOM -->
         <h2
           v-html="titleBottom"
-          class="text-[15.28vw] sm:text-[13.28vw] leading-[.9] pp mb-2 sm:mb-4 lg:mb-5 pt-1 no-wrap tracking-[-.03em] whitespace-nowrap font-helveticaBlack"
+          class="text-[15.28vw] sm:text-[13.28vw] leading-[.9] no-wrap tracking-[-.03em] whitespace-nowrap font-helveticaBlack"
         />
         <!-- END :: TITLE BOTTOM -->
 
         <!-- DESCRIPTION -->
         <div
           v-html="description"
-          class="text-12 lg:text-18 mx-auto mb-5 lg:mb-1 font-medium description px-1 sm:px-0"
+          class="text-12 lg:text-18 mx-auto font-medium description px-1 sm:px-0 mt-5"
         />
         <!-- END ::  DESCRIPTION -->
       </div>
