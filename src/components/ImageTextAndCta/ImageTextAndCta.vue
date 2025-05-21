@@ -45,12 +45,12 @@ const props = defineProps({
   display: flex;
   justify-content: center;
   color: white;
-  height: 100vw;
+  height: 85vw;
   @media (min-width: 600px) {
     height: 60vw;
   }
   @media (min-width: 992px) {
-    height: 68vw;
+    height: 58vw;
   }
   .content-wrapper {
     width: 100%;

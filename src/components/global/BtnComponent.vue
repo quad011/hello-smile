@@ -41,7 +41,7 @@ const themeClass = computed(() => {
   border: 1px solid #282930;
   border-radius: 50px;
   min-width: 18vw;
-  padding: 0.75rem 2rem;
+  padding: 0.5rem 2rem;
   @media (min-width: 600px) {
     padding: 1rem 2rem;
   }

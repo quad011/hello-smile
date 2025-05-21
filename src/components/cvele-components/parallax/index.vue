@@ -56,9 +56,11 @@ onMounted(() => {
 
   .parallax-inner {
     position: relative;
-    top: -20%;
     height: 120%;
     width: 100%;
+    @media (max-width: 600px) {
+      top: -20%;
+    }
   }
 }
 </style>
