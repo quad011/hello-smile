@@ -26,7 +26,7 @@ const props = defineProps({
 
 <template>
   <div
-    class="hero-header h-[70vh] sm:h-auto flex flex-col relative overflow-hidden bg-[#c4eafe] px-5 sm:px-20 lg:px-60 pt-10 sm:pt-20 lg:pt-32 pb-10 sm:pb-32 lg:pb-92"
+    class="hero-header flex flex-col relative overflow-hidden bg-[#c4eafe] px-5 sm:px-20 lg:px-60 pt-10 sm:pt-20 lg:pt-32 pb-20 sm:pb-32 lg:pb-92"
   >
     <div class="relative z-10">
       <!-- CAPTION -->
@@ -59,7 +59,7 @@ const props = defineProps({
 
       <!-- SCORE -->
       <div
-        class="text-center mt-5 lg:mt-20 flex items-center justify-center ml-10 sm:ml-16 xl:ml-0"
+        class="text-center mt-5 lg:mt-20 flex items-center justify-center ml-10 sm:ml-16 2xl:ml-0"
       >
         <animated-element
           :fromY="50"
