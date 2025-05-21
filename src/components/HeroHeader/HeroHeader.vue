@@ -26,7 +26,7 @@ const props = defineProps({
 
 <template>
   <div
-    class="hero-header h-[70vh] sm:h-[100vw] md:h-[120vh] lg:h-[150vh] flex flex-col relative overflow-hidden bg-[#c4eafe] px-5 sm:px-20 xl:px-60 pt-20 lg:pt-32 lg:pb-92"
+    class="hero-header h-[70vh] sm:h-auto flex flex-col relative overflow-hidden bg-[#c4eafe] px-5 sm:px-20 lg:px-60 pt-10 sm:pt-20 lg:pt-32 pb-10 sm:pb-32 lg:pb-92"
   >
     <div class="relative z-10">
       <!-- CAPTION -->
@@ -59,14 +59,19 @@ const props = defineProps({
 
       <!-- SCORE -->
       <div
-        class="text-center mt-10 md:mt-20 flex items-center justify-center ml-10 sm:ml-0"
+        class="text-center mt-5 lg:mt-20 flex items-center justify-center ml-10 sm:ml-16 xl:ml-0"
       >
-        <animated-element :fromY="50" :toY="0" :delay="0.2">
+        <animated-element
+          :fromY="50"
+          :toY="0"
+          :delay="0.2"
+          class="flex items-center"
+        >
           <span
             v-html="'4.9 / 5'"
-            class="font-impact lg:text-54 tracking-[-.05em] mr-3"
+            class="font-impact text-14 lg:text-54 tracking-[-.05em] mr-1 md:mr-3"
           />
-          * <span v-html="'18,921'" class="lg:text-24 ml-3" />
+          * <span v-html="'18,921'" class="text-12 lg:text-24 ml-1 md:ml-3" />
         </animated-element>
       </div>
       <!-- END :: SCORE -->
