@@ -8,6 +8,7 @@ const props = defineProps({
   image: { type: String },
   text: { type: String },
   theme: { type: String },
+  textColor: { type: String, default: "#000" },
   isActive: { type: Boolean },
   isNext: { type: Boolean },
   isPrev: { type: Boolean },
@@ -27,6 +28,7 @@ const props = defineProps({
   >
     <div class="relative z-10">
       <div
+        :style="{ '--text-color': props.textColor }"
         class="content-wrapper flex flex-col items-center justify-center mx-auto"
       >
         <!-- CAPTION -->
@@ -72,7 +74,7 @@ const props = defineProps({
     <!-- BTN -->
     <div class="flex justify-center mt-12 lg:mt-32">
       <RouterLink to="/">
-        <btnComponent theme="black" textBtn="Dodaj u Korpu" class="btn" />
+        <btnComponent theme="white" textBtn="Dodaj u Korpu" class="btn" />
       </RouterLink>
     </div>
     <!-- END :: BTN -->
@@ -107,22 +109,23 @@ const props = defineProps({
     left: 50%;
     top: 50%;
     z-index: 3;
-    height: auto;
-    width: 5.25rem;
+    height: 17vw;
+    width: 7.5vw;
     transition: 1s transform ease-out;
 
     @media (min-width: 600px) {
       transform: translate(-50%, -15%);
-      width: 6.25rem;
+      height: 17vw;
+      width: 3.5vw;
     }
 
     @media (min-width: 1024px) {
-      transform: translate(-50%, 0);
-      width: 12.25rem;
+      transform: translate(-50%, 10%);
     }
   }
 
   .content-wrapper {
+    color: var(--text-color);
     @media (max-width: 600px) {
       width: 100vw;
       transform: translateX(-22.5vw);
@@ -161,7 +164,7 @@ const props = defineProps({
     z-index: 1;
     @media (max-width: 600px) {
       .image {
-        transform: translate(-25%, 14%) scale(0.5);
+        transform: translate(25%, 15%) scale(0.7);
       }
     }
 
@@ -179,7 +182,7 @@ const props = defineProps({
   &--next {
     @media (max-width: 600px) {
       .image {
-        transform: translate(-78%, 14%) scale(0.5);
+        transform: translate(-125%, 15%) scale(0.7);
       }
     }
 

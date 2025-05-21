@@ -134,6 +134,7 @@ onMounted(() => {
       >
         <Slide
           :theme="item.backgroundColor"
+          :textColor="item.textColor"
           :isActive="activeIndex === Number(index)"
           :isPrev="activeIndex > Number(index)"
           :isNext="activeIndex < Number(index)"
