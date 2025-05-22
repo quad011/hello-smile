@@ -134,13 +134,17 @@ const props = defineProps({
     transition: 1s transform ease-out;
 
     @media (min-width: 600px) {
-      transform: translate(-50%, -70%);
-      height: 33vw;
-      width: 6.5vw;
+      // transform: translate(-50%, -70%);
+      // height: 33vw;
+      // width: 6.5vw;
+
+      transform: translate(-50%, -60%);
+      height: 22vw;
+      width: 4.5vw;
     }
 
     @media (min-width: 1024px) {
-      transform: translate(-50%, -60%);
+      transform: translate(-50%, -45%);
     }
     @media (min-width: 1500px) {
       width: 7vw;

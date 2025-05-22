@@ -22,7 +22,7 @@
     />
 
     <div
-      class="pb-5 lg:pb-12 pt-5 lg:pt-24 bg-black flex items-center justify-center"
+      class="pb-5 lg:pb-12 pt-5 sm:pt-10 lg:pt-24 bg-black flex items-center justify-center"
     >
       <img
         class="w-screen h-auto hidden sm:block"
