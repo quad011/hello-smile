@@ -22,7 +22,7 @@ const props = defineProps({
         <div class="hidden sm:block">
           <p
             v-html="text"
-            class="text-14 lg:text-20 mt-5 lg:mt-7 px-2 md:px-0"
+            class="text-14 lg:text-20 mt-5 lg:mt-7 px-2 md:px-0 text-white"
           />
 
           <!-- BTN -->
@@ -48,13 +48,13 @@ const props = defineProps({
     <div class="block sm:hidden py-8">
       <p
         v-html="text"
-        class="text-14 lg:text-20 px-2 md:px-0 text-center sm:text-white"
+        class="text-14 lg:text-20 px-2 md:px-0 text-center text-black"
       />
 
       <!-- BTN -->
       <div class="flex justify-center mt-5 md:mt-10 lg:mt-12">
         <RouterLink to="/">
-          <btnComponent theme="black" textBtn="Dodaj u Korpu" class="btn" />
+          <btnComponent theme="pink" textBtn="Dodaj u Korpu" class="btn" />
         </RouterLink>
       </div>
       <!-- END :: BTN -->
@@ -64,10 +64,10 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 .image-text-and-cta {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
   .content-wrapper-outer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     height: 100vw;
     @media (min-width: 600px) {
       height: 60vw;

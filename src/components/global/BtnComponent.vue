@@ -5,19 +5,16 @@ const props = defineProps({
   },
   theme: {
     type: String,
+    default: "black",
   },
   arrowIcon: {
     type: Boolean,
   },
 });
-
-const themeClass = computed(() => {
-  return props.theme === "black" ? "black" : "white";
-});
 </script>
 
 <template>
-  <div :class="`btn-component flex justify-around items-center ${themeClass}`">
+  <div :class="`btn-component flex justify-around items-center ${theme}`">
     <!-- FAKE DIV -->
     <div v-if="arrowIcon" />
     <!-- END :: FAKE DIV -->
@@ -38,7 +35,6 @@ const themeClass = computed(() => {
 
 <style lang="scss" scoped>
 .btn-component {
-  border: 1px solid #282930;
   border-radius: 50px;
   min-width: 18vw;
   padding: 0.5rem 2rem;
@@ -54,6 +50,7 @@ const themeClass = computed(() => {
 
   &.white {
     background-color: white;
+    border: 1px solid #282930;
     color: black;
     .arrow {
       path {
@@ -73,6 +70,7 @@ const themeClass = computed(() => {
 
   &.black {
     background-color: black;
+    border: 1px solid #282930;
     color: white;
     .arrow {
       path {
@@ -86,6 +84,27 @@ const themeClass = computed(() => {
       .arrow {
         path {
           stroke: black;
+        }
+      }
+    }
+  }
+
+  &.pink {
+    background-color: #ff4aa7;
+    border: 1px solid #ff4aa7;
+    color: white;
+    .arrow {
+      path {
+        stroke: white;
+      }
+    }
+
+    &:hover {
+      background-color: white;
+      color: ff4aa7;
+      .arrow {
+        path {
+          stroke: ff4aa7;
         }
       }
     }
