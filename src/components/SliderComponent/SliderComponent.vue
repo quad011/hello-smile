@@ -130,7 +130,7 @@ onMounted(() => {
             // 'z-10': activeIndex !== index,
           },
         ]"
-        class="swiper-slide py-10 lg:pb-[7.8vw] lg:pt-[10vw]"
+        class="swiper-slide py-20 lg:pb-[7.8vw] lg:pt-[10vw]"
       >
         <Slide
           :theme="item.backgroundColor"

@@ -69,7 +69,12 @@ const props = defineProps({
       <!-- END ::  TEXT -->
 
       <!-- BTN -->
-      <animated-element :fromY="50" :toY="0" :delay="0.2">
+      <animated-element
+        :fromY="50"
+        :toY="0"
+        :delay="0.2"
+        class="flex justify-center sm:justify-start"
+      >
         <arrow-btn :textBtn="textBtn" class="mt-5 lg:mt-10" />
       </animated-element>
       <!-- END ::  BTN -->

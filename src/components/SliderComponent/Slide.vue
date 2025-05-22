@@ -34,7 +34,7 @@ const props = defineProps({
         <!-- CAPTION -->
         <div
           v-html="caption"
-          class="text-14 lg:text-36 mb-0.5 font-helveticaMedium"
+          class="text-14 lg:text-36 mb-2 sm:mb-0.5 font-helveticaMedium"
         />
         <!-- END :: CAPTION -->
 

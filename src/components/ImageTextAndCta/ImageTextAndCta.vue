@@ -13,12 +13,43 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="image-text-and-cta relative pt-10 md:pt-16 lg:pt-28">
-    <!-- CONTENT -->
-    <div class="content-wrapper relative z-10">
-      <h2 v-html="title" class="title" />
+  <div class="image-text-and-cta">
+    <div class="relative content-wrapper-outer pt-10 md:pt-16 lg:pt-28">
+      <!-- CONTENT -->
+      <div class="content-wrapper relative z-10">
+        <h2 v-html="title" class="title text-white" />
 
-      <p v-html="text" class="text-14 lg:text-20 mt-5 lg:mt-7 px-2 md:px-0" />
+        <div class="hidden sm:block">
+          <p
+            v-html="text"
+            class="text-14 lg:text-20 mt-5 lg:mt-7 px-2 md:px-0"
+          />
+
+          <!-- BTN -->
+          <div class="flex justify-center mt-5 md:mt-10 lg:mt-12">
+            <RouterLink to="/">
+              <btnComponent theme="black" textBtn="Dodaj u Korpu" class="btn" />
+            </RouterLink>
+          </div>
+          <!-- END :: BTN -->
+        </div>
+      </div>
+      <!-- END :: CONTENT -->
+
+      <!-- IMAGE -->
+      <div class="bg-image overflow-hidden">
+        <parallax :factor="0.2">
+          <img class="w-full h-full" :src="bgImage" :alt="'hello smile'" />
+        </parallax>
+      </div>
+      <!-- END :: IMAGE -->
+    </div>
+
+    <div class="block sm:hidden py-8">
+      <p
+        v-html="text"
+        class="text-14 lg:text-20 px-2 md:px-0 text-center sm:text-white"
+      />
 
       <!-- BTN -->
       <div class="flex justify-center mt-5 md:mt-10 lg:mt-12">
@@ -28,29 +59,22 @@ const props = defineProps({
       </div>
       <!-- END :: BTN -->
     </div>
-    <!-- END :: CONTENT -->
-
-    <!-- IMAGE -->
-    <div class="bg-image overflow-hidden">
-      <parallax :factor="0.2">
-        <img class="w-full h-full" :src="bgImage" :alt="'hello smile'" />
-      </parallax>
-    </div>
   </div>
-  <!-- END :: IMAGES -->
 </template>
 
 <style lang="scss" scoped>
 .image-text-and-cta {
   display: flex;
   justify-content: center;
-  color: white;
-  height: 85vw;
-  @media (min-width: 600px) {
-    height: 60vw;
-  }
-  @media (min-width: 992px) {
-    height: 58vw;
+  flex-direction: column;
+  .content-wrapper-outer {
+    height: 100vw;
+    @media (min-width: 600px) {
+      height: 60vw;
+    }
+    @media (min-width: 992px) {
+      height: 58vw;
+    }
   }
   .content-wrapper {
     width: 100%;
@@ -61,10 +85,13 @@ const props = defineProps({
       width: 65%;
     }
     .title {
-      font-size: 10.36vw;
+      font-size: 4rem;
       font-family: "Impact";
       letter-spacing: -0.04em;
       line-height: 0.9;
+      @media (min-width: 600px) {
+        font-size: 10.36vw;
+      }
     }
     p {
       padding: 0 1rem;

@@ -13,7 +13,7 @@
       bottomGradient="./assets/img/background-gradient.png"
     />
 
-    <div class="h-[52vw]"></div>
+    <div class="h-[102vw] sm:h-[52vw]"></div>
 
     <ImageTextAndCta
       :bgImage="'./assets/img/8.jpg'"
@@ -21,7 +21,21 @@
       :text="'At Spektre we believe in combining style, functionality, and quality to create sunglasses that not only protect your eyes but also elevate your look. With a passion for timeless designs and innovative craftsmanship, our collection caters to individuals who value comfort, durability, and elegance.'"
     />
 
-    <div class="py-20 lg:py-24 bg-black"></div>
+    <div
+      class="pb-5 lg:pb-12 pt-5 lg:pt-24 bg-black flex items-center justify-center"
+    >
+      <img
+        class="w-screen h-auto hidden sm:block"
+        src="/assets/img/slider-desk.png"
+        :alt="'hello smile'"
+      />
+
+      <img
+        class="w-screen h-auto block sm:hidden relative left-[-1vw]"
+        src="/assets/img/slider-mob.png"
+        :alt="'hello smile'"
+      />
+    </div>
 
     <SliderComponent />
 
