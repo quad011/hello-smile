@@ -17,70 +17,42 @@ const props = defineProps({
 
 <template>
   <div
-    :class="[
-      `slide--${isActive ? 'active' : isNext ? 'next' : 'prev'}`,
-      {
-        // 'z-10 relative': isPrev, // Uncomment if needed
-      },
-      'flex flex-col justify-center',
-    ]"
-    class="slide text-center mx-auto"
+    :class="[`slide--${isActive ? 'active' : isNext ? 'next' : 'prev'}`]"
+    class="slide"
     :style="{ '--text-color': props.textColor }"
   >
-    <div class="relative z-10">
-      <div
-        class="content-wrapper flex flex-col items-center justify-center mx-auto"
-      >
+    <div class="content-wrapper-outer">
+      <div class="content-wrapper">
         <!-- CAPTION -->
-        <div
-          v-html="caption"
-          class="text-14 lg:text-36 mb-2 sm:mb-0.5 font-helveticaMedium"
-        />
+        <div v-html="caption" class="caption" />
         <!-- END :: CAPTION -->
 
         <!-- TITLE TOP -->
-        <h2
-          v-html="titleTop"
-          class="text-[15.28vw] sm:text-[13.28vw] leading-[.9] pp mb-2 sm:mb-4 lg:mb-5 pt-1 no-wrap tracking-[-.03em] whitespace-nowrap font-helveticaBlack"
-        />
+        <h2 v-html="titleTop" class="title" />
         <!-- END :: TITLE TOP -->
       </div>
     </div>
 
-    <div class="relative">
+    <div class="content-wrapper-bottom">
       <!-- BG IMAGE -->
       <div class="bg-image">
-        <img
-          class="bg w-full h-full object-cover flex aspect-[2]"
-          :src="backgroundImage"
-          :alt="'hello smile'"
-        />
+        <img class="bg" :src="backgroundImage" :alt="'hello smile'" />
       </div>
       <!-- END :: BG IMAGE -->
 
       <!-- IMAGE -->
-      <div class="image absolute z-[11]">
-        <div class="w-100 h-100">
-          <img :src="image" :alt="'hello smile'" class="w-100 h-100" />
-        </div>
+      <div class="image">
+        <img :src="image" :alt="'hello smile'" />
       </div>
       <!-- END :: IMAGE -->
 
-      <div
-        class="-mt-[3vw] sm:-mt-[2.8vw] content-wrapper flex flex-col justify-center items-center"
-      >
+      <div class="content-wrapper">
         <!-- TITLE BOTTOM -->
-        <h2
-          v-html="titleBottom"
-          class="text-[15.28vw] sm:text-[13.28vw] leading-[.9] no-wrap tracking-[-.03em] whitespace-nowrap font-helveticaBlack"
-        />
+        <h2 v-html="titleBottom" class="title" />
         <!-- END :: TITLE BOTTOM -->
 
         <!-- DESCRIPTION -->
-        <div
-          v-html="description"
-          class="text-14 lg:text-18 mx-auto description px-1 sm:px-0 mt-5"
-        />
+        <div v-html="description" class="description" />
         <!-- END ::  DESCRIPTION -->
       </div>
     </div>
@@ -97,9 +69,14 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 .slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
   color: var(--text-color);
   .bg-image {
-    margin-top: -6vw;
+    margin-top: -4vw;
     position: relative;
     transform: translateX(-22.5vw);
     width: 100vw;
@@ -111,7 +88,7 @@ const props = defineProps({
       left: 0;
       width: 100%;
       height: 22.7vw;
-      margin-top: -4vw;
+      margin-top: -3vw;
     }
 
     @media (min-width: 768px) {
@@ -126,18 +103,23 @@ const props = defineProps({
   }
 
   .image {
+    position: absolute;
+    z-index: 11;
     left: 50%;
     top: 50%;
     z-index: 11;
     height: 51vw;
     width: 10.5vw;
     transition: 1s transform ease-out;
+    img {
+      width: 100%;
+      height: 100%;
+    }
 
     @media (min-width: 600px) {
       // transform: translate(-50%, -70%);
       // height: 33vw;
       // width: 6.5vw;
-
       transform: translate(-50%, -60%);
       height: 22vw;
       width: 4.5vw;
@@ -146,7 +128,9 @@ const props = defineProps({
     @media (min-width: 1024px) {
       transform: translate(-50%, -45%);
     }
+
     @media (min-width: 1500px) {
+      transform: translate(-50%, -50%);
       width: 7vw;
     }
   }
@@ -154,22 +138,82 @@ const props = defineProps({
   .description {
     width: 100vw;
     transform: translateX(-22.5vw);
+    font-size: clamp(10px, 0.77rem, 20px);
+    line-height: 1.25;
+    margin: 0 auto;
+    padding: 0 0.25rem;
+    margin-top: 1.25rem;
     @media (min-width: 600px) {
       transform: translateX(0);
       width: 50vw;
+      padding: 0;
+    }
+    @media (min-width: 992px) {
+      font-size: clamp(15px, 1rem, 20px);
     }
     @media (min-width: 1440px) {
       width: 35vw;
     }
   }
 
+  .content-wrapper-outer {
+    position: relative;
+    z-index: 10;
+  }
+
   .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
     transition: 0.4s opacity, 1s transform ease-out;
+    .caption {
+      font-family: HelveticaNeue-Extended;
+      line-height: 1.25;
+      font-size: clamp(10px, 0.77rem, 20px);
+      margin-bottom: 0.5rem;
+      @media (min-width: 600px) {
+        line-height: 1.1;
+        margin-bottom: 0.125rem;
+      }
+      @media (min-width: 992px) {
+        font-size: clamp(30px, 2rem, 36px);
+      }
+    }
+  }
+
+  .content-wrapper-bottom {
+    position: relative;
+    .content-wrapper {
+      margin-top: -3vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      @media (min-width: 600px) {
+        margin-top: -2.8vw;
+      }
+    }
+  }
+
+  .title {
+    line-height: 0.9;
+    white-space: no-wrap;
+    letter-spacing: -0.03em;
+    font-family: "HelveticaNeue-Heavy";
+    font-size: 15.28vw;
+    @media (min-width: 600px) {
+      font-size: 13.28vw;
+    }
   }
 
   .bg {
+    display: flex;
+    aspect-ratio: 2;
     transition: 0.4s opacity, 1s transform ease-out;
     z-index: 2;
+    height: 100%;
   }
 
   &--active {
@@ -190,7 +234,7 @@ const props = defineProps({
     z-index: 1;
     @media (max-width: 600px) {
       .image {
-        transform: translate(0, -46%) scale(0.7);
+        transform: translate(0, -45%) scale(0.7);
       }
     }
 
@@ -208,7 +252,7 @@ const props = defineProps({
   &--next {
     @media (max-width: 600px) {
       .image {
-        transform: translate(-100%, -46%) scale(0.7);
+        transform: translate(-100%, -45%) scale(0.7);
       }
     }
 

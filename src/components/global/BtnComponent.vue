@@ -38,7 +38,7 @@ const props = defineProps({
   border-radius: 50px;
   min-width: 18vw;
   padding: 0.5rem 2rem;
-  @media (min-width: 600px) {
+  @media (min-width: 1024px) {
     padding: 1rem 2rem;
   }
 

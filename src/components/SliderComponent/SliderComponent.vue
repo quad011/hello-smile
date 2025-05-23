@@ -81,20 +81,20 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="slider-component relative">
+  <div class="slider-component">
     <!-- BG COLOR -->
-    <div class="clip-wrapper absolute inset-0 z-0 overflow-hidden">
-      <div class="bg-color-wrapper absolute inset-0">
+    <div class="clip-wrapper">
+      <div class="bg-color-wrapper">
         <div
           v-for="(layer, i) in colorStack"
           :key="layer.key"
-          class="liquid-bg absolute inset-0"
+          class="liquid-bg"
           :class="{
             'animate-liquid': i === colorStack.length - 1 && !isFirstLoad,
           }"
         >
           <svg
-            class="wave-mask absolute bottom-0 left-0 w-screen h-full"
+            class="wave-mask"
             viewBox="0 0 1920 1400"
             preserveAspectRatio="xMinYMin slice"
           >
@@ -113,7 +113,6 @@ onMounted(() => {
       :slides-per-view="'auto'"
       :grab-cursor="true"
       :speed="1200"
-      class="!h-auto"
     >
       <SwiperSlide
         v-for="(item, index) in items"
@@ -130,7 +129,7 @@ onMounted(() => {
             // 'z-10': activeIndex !== index,
           },
         ]"
-        class="swiper-slide py-20 lg:pb-[7.8vw] lg:pt-[10vw]"
+        class="swiper-slide"
       >
         <Slide
           :theme="item.backgroundColor"
@@ -161,20 +160,35 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .slider-component {
-  // .clip-wrapper {
-  //   clip-path: ellipse(150% 100% at 50% 100%);
-  //   @media (min-width: 600px) {
-  //     clip-path: ellipse(111% 100% at 50% 100%);
-  //   }
-  // }
+  position: relative;
+  .clip-wrapper {
+    position: absolute;
+    z-index: 0;
+    overflow: hidden;
+    inset: 0;
+    // absolute inset-0 z-0 overflow-hidden
+    //   clip-path: ellipse(150% 100% at 50% 100%);
+    //   @media (min-width: 600px) {
+    //     clip-path: ellipse(111% 100% at 50% 100%);
+    //   }
+  }
   .bg-color-wrapper {
+    position: absolute;
+    inset: 0;
     .wave-mask {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100vw;
+      height: 100%;
       z-index: 2;
       pointer-events: none;
       top: -28%;
       height: 130%;
     }
     .liquid-bg {
+      position: absolute;
+      inset: 0;
       transform: translateY(0);
       transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1),
         opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
@@ -194,15 +208,22 @@ onMounted(() => {
     }
   }
 
-  .swiper-slide {
-    width: 55%;
-    @media (min-width: 600px) {
-      width: 50%;
+  .swiper {
+    height: auto !important;
+    .swiper-slide {
+      width: 55%;
+      padding: 5rem 0;
+      @media (min-width: 600px) {
+        width: 50%;
+      }
+      @media (min-width: 992px) {
+        padding: 10vw 0 7.8vw 0;
+      }
     }
-  }
-  .swiper-slide-prev {
-    position: relative;
-    z-index: 1;
+    .swiper-slide-prev {
+      position: relative;
+      z-index: 1;
+    }
   }
 }
 </style>
