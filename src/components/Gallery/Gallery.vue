@@ -22,7 +22,7 @@ const props = defineProps({
       }"
     >
       <animated-element :fromY="50" :toY="0" :delay="index * 0.1">
-        <img class="w-full h-full" :src="item.image" :alt="'hello smile'" />
+        <img :src="item.image" :alt="'hello smile'" />
       </animated-element>
     </div>
     <!-- END :: IMAGES -->
@@ -37,6 +37,9 @@ const props = defineProps({
     width: 33.333%;
     @media (min-width: 600px) {
       width: 20%;
+    }
+    img {
+      height: 100%;
     }
   }
 }

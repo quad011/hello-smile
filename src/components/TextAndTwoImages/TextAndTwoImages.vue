@@ -21,39 +21,37 @@ const props = defineProps({
 <template>
   <div class="text-and-two-images">
     <div class="inner-wrapper">
-      <div>
-        <!-- TITLE -->
-        <h1 class="title">
-          <!-- <animated-element :fromY="50" :toY="0"> -->
-          <span
-            v-for="(letter, i) in title"
-            :class="{
-              'last-letter': i === title.length - 1,
-              'second-last-letter': i === title.length - 2,
-            }"
-            >{{ letter }}</span
-          >
-        </h1>
-        <!-- </animated-element> -->
-        <!-- END ::  TITLE -->
-
-        <!-- IMAGES -->
-        <div
-          v-for="(item, index) in items"
-          :key="index"
-          :class="`image image--${index}`"
+      <!-- TITLE -->
+      <h1 class="title">
+        <!-- <animated-element :fromY="50" :toY="0"> -->
+        <span
+          v-for="(letter, i) in title"
+          :class="{
+            'last-letter': i === title.length - 1,
+            'second-last-letter': i === title.length - 2,
+          }"
+          >{{ letter }}</span
         >
-          <scrolling-element
-            :fromX="index % 2 ? '30vw' : '-30vw'"
-            :toX="0"
-            startPosition="0"
-            endPosition="center center"
-          >
-            <img :src="item.image" :alt="'hello smile'" />
-          </scrolling-element>
-        </div>
-        <!-- END :: IMAGES -->
+      </h1>
+      <!-- </animated-element> -->
+      <!-- END ::  TITLE -->
+
+      <!-- IMAGES -->
+      <div
+        v-for="(item, index) in items"
+        :key="index"
+        :class="`image image--${index}`"
+      >
+        <scrolling-element
+          :fromX="index % 2 ? '30vw' : '-30vw'"
+          :toX="0"
+          startPosition="0"
+          endPosition="center center"
+        >
+          <img :src="item.image" :alt="'hello smile'" />
+        </scrolling-element>
       </div>
+      <!-- END :: IMAGES -->
 
       <!-- TEXT -->
       <animated-element :fromY="50" :toY="0" :delay="0.1">
@@ -76,6 +74,7 @@ const props = defineProps({
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  padding: 5rem 1.25rem 2.5rem 1.25rem;
   @media (min-width: 600px) {
     padding: 8rem 5rem;
   }
@@ -85,8 +84,7 @@ const props = defineProps({
   }
 
   @media (min-width: 992px) {
-    padding-top: 15rem;
-    padding-bottom: 10rem;
+    padding: 15rem 15rem 10rem 15rem;
   }
 
   @media (min-width: 1024px) {
